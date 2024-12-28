@@ -76,14 +76,20 @@ a[href="shopping-bag.html"] {
   border: 1px solid #ccc; /* Add a border to the link */
   background-color: white; 
   border-radius: 3px; 
-  margin-top: 10px; /* Add some space above the link */
-}
+  }
 
 a[href="shopping-bag.html"] img {
-  width: 20px; 
-  height: 20px;
+  width: 30px; 
+  height: 30px;
   margin-left: 8px; 
 }
+a[href="shopping-bag_fa.html"] {
+  display: inline-block; /* Make the anchor tag display as an inline block */
+  padding: 5px 10px; /* Add padding to the link */
+  border: 1px solid #ccc; /* Add a border to the link */
+  background-color: white; 
+  border-radius: 3px; 
+  }
 
 /* Link Styling */
 a {
@@ -93,4 +99,39 @@ a {
 
 a:hover {
   color: #88654f; /* Darker brown on hover */
+}
+
+
+.shipping-link-board {
+  display: inline-block; /* Make the anchor tag display as an inline block */
+  padding: 5px 10px; /* Add padding to the link */
+  border: 1px solid #ccc; /* Add a border to the link */
+  background-color: white; 
+  border-radius: 3px; 
+  }
+
+
+/* Shipping Information Result Page */
+.shipping-info-container {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Information Box Styling */
+.information-box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Information Results Styling */
+.information-results {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
 }
