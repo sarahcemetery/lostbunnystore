@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="lace-frame"></div> 
+
+    <header>
+        <h1>Lost Bunny Store</h1>
+        <p>Handmade with Love</p>
+        <img src="https://ibb.co/x50PRN2">
+
+    </header>
+<section id="about">
+  <h4>Welcome to Lost Bunny Store!</h4>
+  <p>I'm Sarah, the creator behind Lost Bunny Store. I handcraft each piece with love and attention to detail. 
+     Please note that handmade items can take some time to create. </p>
+     
+ <a href="how-to-order.html">♡How to Order</a>
+
+<button id="language-toggle">فارسی</button>
+
+<script>
+const languageToggle = document.getElementById('language-toggle');
+
+languageToggle.addEventListener('click', () => {
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace('.html', '_fa.html');
+    window.location.href = newUrl;
+});
+</script>
+</section>
+
+    <div class="products">
+        <div class="product-frame">
+            <p>Stuffie <a href="stuffie-brooch.html">♡</a></p> </div>
+        <div class="product-frame">
+            <p>Lolita Headpiece <a href="lolita-headpiece.html">♡</a></p> </div>
+        <div class="product-frame">
+            <p>Ruffled Choker <a href="ruffle-choker.html">♡</a></p> </div>
+    </div>
+
+    <div class="products"> 
+        <div class="product-frame">
+            <p>Black Lace Choker <a href="black-lace-choker.html">♡</a></p> </div> 
+        <div class="product-frame">
+            <p>Bunny Choker <a href="bunny-choker.html">♡</a></p> </div>
+        <div class="product-frame">
+            <p>Bear Ears <a href="bear-ears.html">♡</a></p> </div>
+        <div class="product-frame">
+            <p>Bunny Ears <a href="bunny-ears.html">♡</a></p> </div>
+    </div>
+    
+    <a href="shopping-bag.html"><img src="https://ibb.co/nzhyBTW" alt="Shopping Bag"></a> 
+<br><br>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://t.me/lostbunnystore">Telegram</a>
+            <a href="https://www.pinterest.com/lostbunnistore">Pinterest</a> </div>
+        <p>&copy; Lost Bunny Store 2023</p>
+    </footer>
+
+</body>
+</html>

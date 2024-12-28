@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - نتیجه چوکر توری چین‌دار</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>چوکر توری چین‌دار سفارشی شما!</h1>
+
+    <p><strong>رنگ روبان:</strong> <span id="ribbon-color-result"></span></p>
+    <p><strong>رنگ پاپیون:</strong> <span id="bowtie-color-result"></span></p>
+    <p><strong>اندازه چوکر:</strong> <span id="choker-size-result"></span> سانتی‌متر</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ribbonColor = urlParams.get('ribbon-color');
+        const bowtieColor = urlParams.get('bowtie-color');
+        const chokerSize = urlParams.get('choker-size');
+
+        document.getElementById('ribbon-color-result').textContent = ribbonColor;
+        document.getElementById('bowtie-color-result').textContent = bowtieColor;
+        document.getElementById('choker-size-result').textContent = chokerSize;
+    </script>
+
+<button id="likeButton">دوستش دارم</button>
+<button id="noThanksButton">نه متشکرم</button>
+
+<script>
+const likeButton = document.getElementById('likeButton');
+const noThanksButton = document.getElementById('noThanksButton');
+
+likeButton.addEventListener('click', () => {
+  // Get product details from the page (replace with your actual logic)
+  const productName = 'چوکر توری چین‌دار'; // Product name in Farsi
+  const productDetails = {
+    ribbonColor: document.getElementById('ribbon-color-result').textContent,
+    bowtieColor: document.getElementById('bowtie-color-result').textContent,
+    chokerSize: document.getElementById('choker-size-result').textContent,
+  };
+
+  // Store product details in local storage
+  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  shoppingCart.push({ name: productName, details: productDetails });
+  localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+  // Redirect to the main page (Farsi version)
+  window.location.href = 'index_fa.html'; 
+});
+
+noThanksButton.addEventListener('click', () => {
+  // Redirect to the main page without adding to cart
+  window.location.href = 'index_fa.html'; 
+});
+</script>
+
+</body>
+</html>

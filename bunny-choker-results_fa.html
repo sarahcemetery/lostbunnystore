@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - نتیجه گردنبند خرگوشی</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>گردنبند خرگوشی سفارشی شما!</h3>
+
+    <p><strong>رنگ روبان:</strong> <span id="ribbon-color-result"></span></p>
+    <p><strong>اندازه گردنبند:</strong> <span id="chokerSize-result"></span> سانتی‌متر</p>
+
+    <p><strong>با پاپیون:</strong> <span id="hasBowtie-result"></span></p>
+    <p><strong>رنگ پاپیون:</strong> <span id="bowtieColor-result"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ribbonColor = urlParams.get('ribbonColor');
+        const chokerSize = urlParams.get('chokerSize');
+        const hasBowtie = urlParams.get('hasBowtie'); 
+        const bowtieColor = urlParams.get('bowtieColor');
+
+        document.getElementById('ribbon-color-result').textContent = ribbonColor;
+        document.getElementById('chokerSize-result').textContent = chokerSize;
+
+        document.getElementById('hasBowtie-result').textContent = hasBowtie === 'Yes' ? 'بله' : 'خیر'; 
+        document.getElementById('bowtieColor-result').textContent = hasBowtie === 'Yes' ? bowtieColor : 'ناشناخته'; 
+
+    </script>
+
+    <button id="likeButton">دوستش دارم</button>
+    <button id="noThanksButton">نه متشکرم</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+          // Get product details from the page (replace with your actual logic)
+          const productName = 'گردنبند خرگوشی'; // Product name in Farsi
+          const productDetails = {
+            ribbonColor: document.getElementById('ribbon-color-result').textContent,
+            chokerSize: document.getElementById('chokerSize-result').textContent,
+            hasBowtie: document.getElementById('hasBowtie-result').textContent,
+            bowtieColor: document.getElementById('bowtieColor-result').textContent,
+          };
+
+          // Store product details in local storage
+          let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+          shoppingCart.push({ name: productName, details: productDetails });
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+          // Redirect to the main page (Farsi version)
+          window.location.href = 'index_fa.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+          // Redirect to the main page without adding to cart
+          window.location.href = 'index_fa.html'; 
+        });
+    </script>
+
+</body>
+</html> 

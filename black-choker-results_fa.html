@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - نتیجه گردنبند توری مشکی</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>گردنبند توری مشکی سفارشی شما!</h3>
+
+    <p><strong>نوع گردنبند:</strong> <span id="chokerType-result"></span></p>
+    <p><strong>اندازه گردنبند:</strong> <span id="chokerSize-result"></span> سانتی‌متر</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const chokerType = urlParams.get('chokerType');
+        const chokerSize = urlParams.get('chokerSize');
+
+        document.getElementById('chokerType-result').textContent = chokerType;
+        document.getElementById('chokerSize-result').textContent = chokerSize;
+    </script>
+
+    <button id="likeButton">دوستش دارم</button>
+    <button id="noThanksButton">نه متشکرم</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+          // Get product details from the page (replace with your actual logic)
+          const productName = 'گردنبند توری مشکی'; // Product name in Farsi
+          const productDetails = {
+            chokerType: document.getElementById('chokerType-result').textContent,
+            chokerSize: document.getElementById('chokerSize-result').textContent,
+          };
+
+          // Store product details in local storage
+          let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+          shoppingCart.push({ name: productName, details: productDetails });
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+          // Redirect to the main page (Farsi version)
+          window.location.href = 'index_fa.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+          // Redirect to the main page without adding to cart
+          window.location.href = 'index_fa.html'; 
+        });
+    </script>
+
+</body>
+</html>
+
+**Changes:**
+
+*   **`lang="fa"`:** Maintained the language attribute for Farsi.
+*   **Translated titles:** Translated the title to "نتیجه گردنبند توری مشکی" (Black Lace Choker Results in Farsi).
+*   **Translated button text:** Translated "I Like It" to "دوستش دارم" (I Like It in Farsi) and "No Thanks" to "نه متشکرم" (No Thanks in Farsi).
+*   **Product name in Farsi:** Used the Farsi product name "گردنبند توری مشکی" in the script.
+*   **Redirected to Farsi main page:** Updated the redirection URLs to point to the Farsi versions of the main page (`index_fa.html`).

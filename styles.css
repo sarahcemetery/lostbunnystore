@@ -1,0 +1,96 @@
+body {
+    background-color: #fffaff;
+    color: #88654f;
+    font-family: sans-serif; 
+    margin: 0;
+    padding: 20px; 
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#about {
+    background-color: white; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px; 
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #88654f;
+}
+
+/* Shopping Bag Styling */
+#shoppingBagList {
+  list-style: none;
+  padding: 0;
+}
+
+#shoppingBagList li {
+  margin: 15px 0; 
+  border: 1px solid #ccc;
+  border-radius: 8px; 
+  padding: 10px 15px;
+  background-color: white; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* Button Styling */
+button {
+  background-color: white; /* white button background */
+  color: #b18467; /* Light pink text */
+  border: none;
+  border-radius: 5px; 
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Shopping Bag Icon Styling */
+.shopping-bag-icon {
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
+  background-color: #f0c0c0; 
+  border-radius: 5px;
+  padding: 5px;
+}
+
+a[href="shopping-bag.html"] {
+  display: inline-block; /* Make the anchor tag display as an inline block */
+  padding: 5px 10px; /* Add padding to the link */
+  border: 1px solid #ccc; /* Add a border to the link */
+  background-color: white; 
+  border-radius: 3px; 
+  margin-top: 10px; /* Add some space above the link */
+}
+
+a[href="shopping-bag.html"] img {
+  width: 20px; 
+  height: 20px;
+  margin-left: 8px; 
+}
+
+/* Link Styling */
+a {
+  color: #b28766; /* Lighter brown link color */
+  text-decoration: none; 
+}
+
+a:hover {
+  color: #88654f; /* Darker brown on hover */
+}

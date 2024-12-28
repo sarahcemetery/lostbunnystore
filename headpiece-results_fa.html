@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - نتیجه هدبند لولیتا</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>هدبند لولیتای سفارشی شما!</h3>
+
+    <p><strong>رنگ روبان:</strong> <span id="ribbon-color-result"></span></p>
+    <p><strong>اندازه هدبند:</strong> <span id="headpiece-size-result"></span> سانتی‌متر</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ribbonColor = urlParams.get('ribbon-color');
+        const headpieceSize = urlParams.get('headpiece-size');
+
+        document.getElementById('ribbon-color-result').textContent = ribbonColor;
+        document.getElementById('headpiece-size-result').textContent = headpieceSize;
+    </script>
+    
+    <button id="likeButton">دوستش دارم</button>
+<button id="noThanksButton">نه متشکرم</button>
+<script>
+  const likeButton = document.getElementById('likeButton');
+const noThanksButton = document.getElementById('noThanksButton');
+
+likeButton.addEventListener('click', () => {
+  // Get product details from the page (replace with your actual logic)
+  const productName = 'هدبند لولیتا'; // Product name in Farsi
+  const productDetails = {
+    ribbonColor: document.getElementById('ribbon-color-result').textContent,
+    headpieceSize: document.getElementById('headpiece-size-result').textContent,
+  };
+
+  // Store product details in local storage
+  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  shoppingCart.push({ name: productName, details: productDetails });
+  localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+  // Redirect to the main page (Farsi version)
+  window.location.href = 'index_fa.html'; 
+});
+
+noThanksButton.addEventListener('click', () => {
+  // Redirect to the main page without adding to cart
+  window.location.href = 'index_fa.html'; 
+});
+ </script> 
+
+</body>
+</html>
+

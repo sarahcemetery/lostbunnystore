@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Black Lace Choker Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>Your Customized Black Lace Choker!</h3>
+
+    <p><strong>Choker Type:</strong> <span id="chokerType-result"></span></p>
+    <p><strong>Choker Size:</strong> <span id="chokerSize-result"></span> cm</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const chokerType = urlParams.get('chokerType');
+        const chokerSize = urlParams.get('chokerSize');
+
+        document.getElementById('chokerType-result').textContent = chokerType;
+        document.getElementById('chokerSize-result').textContent = chokerSize;
+    </script>
+
+    <button id="likeButton">I Like It</button>
+    <button id="noThanksButton">No Thanks</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+          // Get product details from the page (replace with your actual logic)
+          const productName = 'Black Lace Choker'; 
+          const productDetails = {
+            chokerType: document.getElementById('chokerType-result').textContent,
+            chokerSize: document.getElementById('chokerSize-result').textContent,
+          };
+
+          // Store product details in local storage
+          let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+          shoppingCart.push({ name: productName, details: productDetails });
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+          // Redirect to the main page
+          window.location.href = 'index.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+          // Redirect to the main page without adding to cart
+          window.location.href = 'index.html'; 
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Bunny Choker Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>Your Customized Bunny Choker!</h3>
+
+    <p><strong>Ribbon Color:</strong> <span id="ribbon-color-result"></span></p>
+    <p><strong>Choker Size:</strong> <span id="chokerSize-result"></span> cm</p>
+
+    <p><strong>Has Bowtie:</strong> <span id="hasBowtie-result"></span></p>
+    <p><strong>Bowtie Color:</strong> <span id="bowtieColor-result"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ribbonColor = urlParams.get('ribbonColor');
+        const chokerSize = urlParams.get('chokerSize');
+        const hasBowtie = urlParams.get('hasBowtie'); 
+        const bowtieColor = urlParams.get('bowtieColor');
+
+        document.getElementById('ribbon-color-result').textContent = ribbonColor;
+        document.getElementById('chokerSize-result').textContent = chokerSize;
+
+        document.getElementById('hasBowtie-result').textContent = hasBowtie ? 'Yes' : 'No'; 
+        document.getElementById('bowtieColor-result').textContent = hasBowtie ? bowtieColor : 'N/A'; 
+
+    </script>
+
+    <button id="likeButton">I Like It</button>
+    <button id="noThanksButton">No Thanks</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+          // Get product details from the page (replace with your actual logic)
+          const productName = 'Bunny Choker'; 
+          const productDetails = {
+            ribbonColor: document.getElementById('ribbon-color-result').textContent,
+            chokerSize: document.getElementById('chokerSize-result').textContent,
+            hasBowtie: document.getElementById('hasBowtie-result').textContent,
+            bowtieColor: document.getElementById('bowtieColor-result').textContent,
+          };
+
+          // Store product details in local storage
+          let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+          shoppingCart.push({ name: productName, details: productDetails });
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+          // Redirect to the main page
+          window.location.href = 'index.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+          // Redirect to the main page without adding to cart
+          window.location.href = 'index.html'; 
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Shopping Bag</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <h1>Your Shopping Bag</h1>
+
+    <ul id="shoppingBagList"></ul>
+
+    <button id="saveAsImage">Save as Image</button>
+
+    <script>
+        const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+        const shoppingBagList = document.getElementById('shoppingBagList');
+
+        // Function to display shopping bag items with delete buttons
+        function displayItems() {
+            shoppingBagList.innerHTML = ""; // Clear existing list items
+            shoppingCart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    ♡ **${item.name}**<br>
+                    ${Object.entries(item.details).map(([key, value]) => `<span>${key}: </span>${Array.isArray(value) ? value.join(', ') : value}<br>`).join('')}
+                    <button class="delete-item" data-item-index="${shoppingCart.indexOf(item)}">Delete</button>
+                `;
+                shoppingBagList.appendChild(listItem);
+            });
+        }
+
+        displayItems(); // Display initial items
+
+        // Event listener for delete buttons
+        shoppingBagList.addEventListener('click', (event) => {
+            if (event.target.classList.contains('delete-item')) {
+                const itemIndex = parseInt(event.target.dataset.itemIndex);
+                shoppingCart.splice(itemIndex, 1); // Remove item from shopping cart
+                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart)); // Update local storage
+                displayItems(); // Update displayed list
+            }
+        });
+
+        const saveAsImageButton = document.getElementById('saveAsImage');
+
+        saveAsImageButton.addEventListener('click', () => {
+            html2canvas(document.getElementById('shoppingBagList')).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = 'shopping_bag.png';
+                link.href = imgData;
+                link.click();
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> 
+
+</body>
+</html>

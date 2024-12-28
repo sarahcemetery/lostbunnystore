@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Ruffled Choker Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Your Customized Ruffled Choker!</h1>
+
+    <p><strong>Ribbon Color:</strong> <span id="ribbon-color-result"></span></p>
+    <p><strong>Bowtie Color:</strong> <span id="bowtie-color-result"></span></p>
+    <p><strong>Choker Size:</strong> <span id="choker-size-result"></span> inches</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ribbonColor = urlParams.get('ribbon-color');
+        const bowtieColor = urlParams.get('bowtie-color');
+        const chokerSize = urlParams.get('choker-size');
+
+        document.getElementById('ribbon-color-result').textContent = ribbonColor;
+        document.getElementById('bowtie-color-result').textContent = bowtieColor;
+        document.getElementById('choker-size-result').textContent = chokerSize;
+    </script>
+
+<button id="likeButton">I Like It</button>
+<button id="noThanksButton">No Thanks</button>
+
+<script>
+const likeButton = document.getElementById('likeButton');
+const noThanksButton = document.getElementById('noThanksButton');
+
+likeButton.addEventListener('click', () => {
+  // Get product details from the page (replace with your actual logic)
+  const productName = 'Ruffled Choker'; 
+  const productDetails = {
+    ribbonColor: document.getElementById('ribbon-color-result').textContent,
+    bowtieColor: document.getElementById('bowtie-color-result').textContent,
+    chokerSize: document.getElementById('choker-size-result').textContent,
+  };
+
+  // Store product details in local storage
+  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  shoppingCart.push({ name: productName, details: productDetails });
+  localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+  // Redirect to the main page
+  window.location.href = 'index.html'; 
+});
+
+noThanksButton.addEventListener('click', () => {
+  // Redirect to the main page without adding to cart
+  window.location.href = 'index.html'; 
+});
+</script>
+
+</body>
+</html>

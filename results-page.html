@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Stuffie Brooch Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>Your Customized Stuffie Brooch!</h3>
+
+    <p><strong>Stuffie Friend:</strong> <span id="stuffie-result"></span></p>
+    <p><strong>Snout Color:</strong> <span id="snout-color-result"></span></p>
+    <p><strong>Bowtie Placement:</strong></p>
+    <ul id="bowtie-placement-result"></ul>
+    <p><strong>Bowtie Color:</strong> <span id="bowtie-color-result"></span></p>
+    <p><strong>Pacifier:</strong> <span id="pacifier-result"></span></p>
+    <p><strong>Blush:</strong> <span id="blush-result"></span></p>
+    <p><strong>Style:</strong> <span id="style-result"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const stuffie = urlParams.get('stuffie');
+        const snoutColor = urlParams.get('snout-color');
+        const bowtiePlacements = urlParams.getAll('bowtie-placement');
+        const bowtieColor = urlParams.get('bowtie-color');
+        const pacifier = urlParams.get('pacifier');
+        const blush = urlParams.get('blush');
+        const style = urlParams.get('style');
+
+        document.getElementById('stuffie-result').textContent = stuffie;
+        document.getElementById('snout-color-result').textContent = snoutColor;
+
+        const placementList = document.getElementById('bowtie-placement-result');
+        bowtiePlacements.forEach(placement => {
+            const listItem = document.createElement('li');
+            listItem.textContent = placement;
+            placementList.appendChild(listItem);
+        });
+
+        document.getElementById('bowtie-color-result').textContent = bowtieColor;
+        document.getElementById('pacifier-result').textContent = pacifier ? 'Yes' : 'No';
+        document.getElementById('blush-result').textContent = blush ? 'Yes' : 'No';
+        document.getElementById('style-result').textContent = style;
+
+    </script>
+
+    <button id="likeButton">I Like It</button>
+    <button id="noThanksButton">No Thanks</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+          // Get product details from the page (replace with your actual logic)
+          const productName = 'Stuffie Brooch'; 
+          const productDetails = {
+            stuffie: document.getElementById('stuffie-result').textContent,
+            snoutColor: document.getElementById('snout-color-result').textContent,
+            bowtiePlacements: Array.from(document.getElementById('bowtie-placement-result').children).map(li => li.textContent),
+            bowtieColor: document.getElementById('bowtie-color-result').textContent,
+            pacifier: document.getElementById('pacifier-result').textContent,
+            blush: document.getElementById('blush-result').textContent,
+            style: document.getElementById('style-result').textContent,
+          };
+
+          // Store product details in local storage
+          let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+          shoppingCart.push({ name: productName, details: productDetails });
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+          // Redirect to the main page
+          window.location.href = 'index.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+          // Redirect to the main page without adding to cart
+          window.location.href = 'index.html'; 
+        });
+    </script>
+
+</body>
+</html>
