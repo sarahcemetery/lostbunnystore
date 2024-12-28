@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Shipping Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <h2>Shipping Information</h2>
+    
+<div class="information-results">
+   
+    <p><strong>Full Name:</strong> <span id="full-name-result"></span></p>
+    <p><strong>Postal Code:</strong> <span id="postal-code-result"></span></p>
+    <p><strong>Phone Number:</strong> <span id="phone-number-result"></span></p>
+    <p><strong>Address:</strong> <span id="address-result"></span></p>
+</div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fullName = urlParams.get('full-name');
+        const postalCode = urlParams.get('postal-code');
+        const phoneNumber = urlParams.get('phone-number');
+        const address = urlParams.get('address');
+
+        document.getElementById('full-name-result').textContent = fullName;
+        document.getElementById('postal-code-result').textContent = postalCode;
+        document.getElementById('phone-number-result').textContent = phoneNumber;
+        document.getElementById('address-result').textContent = address;
+    </script>
+
+    <button id="saveAsImage">Save as Image</button>
+
+    <script>
+        const saveAsImageButton = document.getElementById('saveAsImage');
+
+        saveAsImageButton.addEventListener('click', () => {
+            html2canvas(document.querySelector('body')).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = 'shipping_info.png';
+                link.href = imgData;
+                link.click();
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> 
+
+</body>
+</html>
