@@ -15,6 +15,7 @@
     <p><strong>کد پستی:</strong> <span id="postal-code-result"></span></p>
     <p><strong>شماره همراه:</strong> <span id="phone-number-result"></span></p>
     <p><strong>آدرس:</strong> <span id="address-result"></span></p>
+<p><strong> یادداشت:</strong> <span id="customer-note-result"></span></p> 
 </div>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -27,7 +28,9 @@
         document.getElementById('postal-code-result').textContent = postalCode;
         document.getElementById('phone-number-result').textContent = phoneNumber;
         document.getElementById('address-result').textContent = address;
-    </script>
+  const customerNote = urlParams.get('customer-note');
+    document.getElementById('customer-note-result').textContent = customerNote;
+  </script>
 
     <button id="saveAsImage">ذخیره تصویر</button>
 
