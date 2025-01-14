@@ -17,6 +17,7 @@
     <p><strong>Postal Code:</strong> <span id="postal-code-result"></span></p>
     <p><strong>Phone Number:</strong> <span id="phone-number-result"></span></p>
     <p><strong>Address:</strong> <span id="address-result"></span></p>
+<p><strong>Note:</strong> <span id="customer-note-result"></span></p> 
 </div>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -29,6 +30,9 @@
         document.getElementById('postal-code-result').textContent = postalCode;
         document.getElementById('phone-number-result').textContent = phoneNumber;
         document.getElementById('address-result').textContent = address;
+  
+ const customerNote = urlParams.get('customer-note');
+    document.getElementById('customer-note-result').textContent = customerNote; 
     </script>
 
     <button id="saveAsImage">Save as Image</button>
@@ -37,7 +41,7 @@
         const saveAsImageButton = document.getElementById('saveAsImage');
 
         saveAsImageButton.addEventListener('click', () => {
-            html2canvas(document.querySelector('.information-results')).then(canvas => {
+            html2canvas(document.querySelector('body')).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
                 const link = document.createElement('a');
                 link.download = 'shipping_info.png';
