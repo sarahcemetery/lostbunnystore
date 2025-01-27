@@ -78,11 +78,7 @@ a[href="shopping-bag.html"] {
   border-radius: 3px; 
   }
 
-a[href="shopping-bag.html"] img {
-  width: 30px; 
-  height: 30px;
-  margin-left: 8px; 
-}
+
 a[href="shopping-bag_fa.html"] {
   display: inline-block; /* Make the anchor tag display as an inline block */
   padding: 5px 10px; /* Add padding to the link */
@@ -135,3 +131,5 @@ a:hover {
   border-radius: 5px;
   padding: 20px;
 }
+
+
