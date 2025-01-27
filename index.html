@@ -13,7 +13,24 @@
 <!--   © middlepot.com  ꒰ ू´ ˘ ` ू ꒱  -->
 </head>
 <body>
+<button id="playButton">🏠</button>
 
+<audio id="myAudio" src="teaparty.mp3" preload="auto"></audio>
+
+<script>
+  const playButton = document.getElementById('playButton');
+  const audio = document.getElementById('myAudio');
+
+  playButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = '🏠'; 
+    } else {
+      audio.pause();
+      playButton.textContent = '🏠'; 
+    }
+  });
+</script>
     <div class="lace-frame"></div> 
 
     <header>
