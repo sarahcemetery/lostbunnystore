@@ -1,87 +1,18 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Bunny Store</title>
-    <link rel="stylesheet" href="styles.css">
-   <!--   ・゜ ♡   emoji set code   ♡ ゜ ・  -->
-<script src="https://file.pooftie.me/js/jquery.js"></script>
-<script src="https://middlepot.com/emoji.js"></script>
-<!--   © middlepot.com  ꒰ ू´ ˘ ` ू ꒱  --> 
-</head>
-<body>
+<button id="playButton">🏠</button>
 
-    <div class="lace-frame"></div> 
+<audio id="myAudio" src="teaparty.mp3" preload="auto"></audio>
 
-    <header>
-        <h1>Lost Bunny Store</h1>
-        <p>Handmade with Love</p>
-        <img src="https://i.ibb.co/vzGgKSc/Picsart-24-12-28-16-56-06-374.png" alt="Picsart-24-12-28-16-56-06-374" border="0" width="140" height="160" /></a>
-    </header>
-<section id="about">
-  <h4>🎗 Lost Bunny Store</h4>  
-  <p>
-سارا هستم و یه دنیای کوچولو ساختم که توش پر از کارهای دست‌ساز لولیتا و عروسکای دوست داشتنیه.هر محصول با دقت به جزئیات و سفارشی ساخته میشه 🧸</p>
-      
- <a href="how-to-order_fa.html">♡نحوه سفارش</a>  
-  
-  <!DOCTYPE html>
-<html lang="fa">
-    <button id="language-toggle">english</button>
+<script>
+  const playButton = document.getElementById('playButton');
+  const audio = document.getElementById('myAudio');
 
-    <script>
-    const languageToggle = document.getElementById('language-toggle');
-
-    languageToggle.addEventListener('click', () => {
-        const currentUrl = window.location.href;
-        const newUrl = currentUrl.replace('_fa.html', '.html');
-        window.location.href = newUrl;
-    });
-    </script>
-  
-  
- </section>
- 
-
-
-
-    <div class="products">
-        <div class="product-frame">
-            <p> 🐑سنجاق عروسکی <a href="stuffie-brooch_fa.html">♡</a></p> </div>
-        <div class="product-frame">
-            <p>💟 هدبند لولیتا <a href="lolita-headpiece_fa.html">♡</a></p> </div>
-        <div class="product-frame">
-            <p>🧦چوکر توری <a href="ruffle-choker_fa.html">♡</a></p> </div>
-    </div>
-
-    <div class="products"> 
-        <div class="product-frame">
-          <p> 🗝چوکر مشکی <a href="black-lace-choker_fa.html">♡</a></p> </div> 
-        <div class="product-frame">
-            <p>🤍چوکر خرگوشی <a href="bunny-choker_fa.html">♡</a></p> </div>
-        <div class="product-frame">
-            <p>🧸گوش خرسی <a href="bear-ears_fa.html">♡</a></p> </div>
-        <div class="product-frame">
-            <p>🐇گوش خرگوشی <a href="bunny-ears_fa.html">♡</a></p> </div>
-    </div>
-    
-    <a href="shopping-bag_fa.html"> سبد خرید 🧺</a> 
-<br><br> 
-
-
-<div class="shipping-link-board">
-  <a href="shipping-info_fa.html"> اطلاعات ارسال 💌</a> 
-</div>
-<!--   ・゜ ♡   emoji set code   ♡ ゜ ・  -->
-<script>loadEmojis();</script>
-<!--   © middlepot.com  ꒰ ू´ ˘ ` ू ꒱  -->
-    <footer>
-        <div class="social-links">
-            <a href="https://t.me/lostbunnystore">تلگرام</a>
-            <a href="https://www.pinterest.com/lostbunnistore">پینترست</a> </div>
-        <p>&copy; Lost Bunny Store 2023</p>
-    </footer>
-
-</body>
-            </html>
+  playButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = '♪'; 
+    } else {
+      audio.pause();
+      playButton.textContent = '♪'; 
+    }
+  });
+</script>
