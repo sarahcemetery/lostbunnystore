@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Bunny Ears Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>Your Customized Bunny Ears!</h3>
+
+    <p><strong>Ear Color:</strong> <span id="ear-color-result"></span></p>
+    <p><strong>Blush:</strong> <span id="blush-result"></span></p>
+    <p><strong>Shapable Wire:</strong> <span id="shapable-result"></span></p>
+    <p><strong>Stuffing:</strong> <span id="stuffed-result"></span></p>
+    <p><strong>Attachment:</strong> <span id="attachment-result"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const earColor = urlParams.get('ear-color');
+        const blush = urlParams.get('blush');
+        const shapable = urlParams.get('shapable');
+        const stuffed = urlParams.get('stuffed');
+        const attachment = urlParams.get('attachment');
+
+        document.getElementById('ear-color-result').textContent = earColor.replace('-', ' '); // Nicer formatting
+        document.getElementById('blush-result').textContent = blush ? 'Yes' : 'No';
+        document.getElementById('shapable-result').textContent = shapable ? 'Yes' : 'No';
+        document.getElementById('stuffed-result').textContent = stuffed ? 'Yes' : 'No';
+        document.getElementById('attachment-result').textContent = attachment;
+
+    </script>
+
+        <button id="likeButton">I Like It</button>
+    <button id="noThanksButton">No Thanks</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+          // Get product details from the page (replace with your actual logic)
+          const productName = 'Bunny Ears'; 
+          const productDetails = {
+            earColor: document.getElementById('ear-color-result').textContent,
+            blush: document.getElementById('blush-result').textContent,
+            shapable: document.getElementById('shapable-result').textContent,
+            stuffed: document.getElementById('stuffed-result').textContent,
+            attachment: document.getElementById('attachment-result').textContent,
+          };
+
+          // Store product details in local storage
+          let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+          shoppingCart.push({ name: productName, details: productDetails });
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+          // Redirect to the main page
+          window.location.href = 'index.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+          // Redirect to the main page without adding to cart
+          window.location.href = 'index.html'; 
+        });
+    </script>
+
+
+</body>
+</html>
