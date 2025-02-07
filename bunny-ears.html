@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Bunny Store - Bunny Ears (Coming Soon)</title>
+    <title>Lost Bunny Store - Bunny Ears</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1>Bunny Ears</h1>
+    <h2>Bunny Ears</h2>
 
-    <p>Coming Soon!</p>
+    <form action="bunny-ears-results.html" method="get">
+
+        <label for="ear-color">Bunny Ear Color:</label>
+        <select id="ear-color" name="ear-color">
+            <option value="white-both">White (Both Sides)</option>
+            <option value="white-pink">White (Outer), Pink (Inner)</option>
+            <option value="pink-both">Pink (Both Sides)</option>
+        </select><br><br>
+
+        <label for="blush">Blush</label>
+        <input type="checkbox" id="blush" name="blush"><br><br>
+
+        <label for="shapable">Shapable Wire</label>
+        <input type="checkbox" id="shapable" name="shapable"><br><br>
+
+        <label for="stuffed">Stuffing</label>
+        <input type="checkbox" id="stuffed" name="stuffed"><br><br>
+
+        <label for="attachment">Attachment:</label>
+        <select id="attachment" name="attachment">
+            <option value="hair-clip">Hair Clip</option>
+            <option value="headband">Headband (Optional)</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit Form">
+
+    </form>
 
 </body>
 </html>
