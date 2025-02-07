@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Bunny Store - گوش خرگوشی</title> 
+    <title>lost bunny store - گوش‌های خرگوشی</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1>گوش خرگوشی</h1>
+    <h1>گوش‌های خرگوشی</h1>
 
-    <p>به زودی!</p>
+    <form action="bunny-ears-results_fa.html" method="get">
+
+        <label for="ear-color">رنگ گوش خرگوشی:</label>
+        <select id="ear-color" name="ear-color">
+            <option value="white-both">سفید (هر دو طرف)</option>
+            <option value="white-pink">سفید (بیرونی)، صورتی (داخلی)</option>
+            <option value="pink-both">صورتی (هر دو طرف)</option>
+        </select><br><br>
+
+        <label for="blush">رژگونه:</label>
+        <input type="checkbox" id="blush" name="blush"><br><br>
+
+        <label for="shapable">سیم شکل دهی:</label>
+        <input type="checkbox" id="shapable" name="shapable"><br><br>
+
+        <label for="stuffed">پنبه:</label>
+        <input type="checkbox" id="stuffed" name="stuffed"><br><br>
+
+        <label for="attachment">اتصال:</label>
+        <select id="attachment" name="attachment">
+            <option value="hair-clip">گیر مو</option>
+            <option value="headband">تل مو (اختیاری)</option>
+        </select><br><br>
+
+        <input type="submit" value="ثبت فرم">
+
+    </form>
 
 </body>
 </html>
