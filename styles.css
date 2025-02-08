@@ -133,3 +133,10 @@ a:hover {
 }
 
 
+/*راست به چپ*/
+:lang(fa) {
+    direction: rtl;
+    text-align: right;
+}
+
+
