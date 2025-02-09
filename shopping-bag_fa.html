@@ -1,47 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Bunny Store - Shopping Bag</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <title>Lost Bunny Store - سبد خرید</title>
+    <link rel="stylesheet" href="stylesf.css"> 
 </head>
 <body>
 
-    <h1>Your Shopping Bag</h1>
+    <h2>سبد خرید شما</h2>
 
     <ul id="shoppingBagList"></ul>
+    
+   
 
-    <button id="saveAsImage">Save as Image</button>
-<img <img src="sweetpiano.png" "border="0" width="80" height="80">
+    <button id="saveAsImage">ذخیره به عنوان تصویر</button>
+
+<img src="sweetpiano.png" "border="0" width="80" height="80">
     <script>
+        const products = {
+            'Stuffie': { price: 60 },
+            'Lolita Headpiece': { price: 200 },
+            'Ruffled Choker': { price: 40 },
+            'Black Lace Choker': { price: 19 },
+            'Bunny Choker': { price: 15 },
+            'Bear Ears': { price: 65 },
+            'Bunny Ears': { price: 90 },
+            'Lace Headpiece': { price: 30 },
+
+            'سنجاق عروسکی': { price: 60 },
+            'هدبند لولیتا': { price: 200 },
+            'چوکر توری': { price: 40 },
+            'چوکر مشکی': { price: 19 },
+            'چوکر خرگوشی': { price: 15 },
+            'گوش خرسی': { price: 65 },
+            'گوش خرگوشی': { price: 90 },
+            'هدبند توری': { price: 30 }
+        };
+
         const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-
         const shoppingBagList = document.getElementById('shoppingBagList');
+        let totalPrice = 0;
 
-        // Function to display shopping bag items with delete buttons
         function displayItems() {
-            shoppingBagList.innerHTML = ""; // Clear existing list items
+            shoppingBagList.innerHTML = "";
+            totalPrice = 0;
+
             shoppingCart.forEach(item => {
+                const product = products[item.name];
+                const price = product ? product.price : 0;
+                totalPrice += price;
+
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
                     ♡ **${item.name}**<br>
                     ${Object.entries(item.details).map(([key, value]) => `<span>${key}: </span>${Array.isArray(value) ? value.join(', ') : value}<br>`).join('')}
-                    <button class="delete-item" data-item-index="${shoppingCart.indexOf(item)}">Delete</button>
+                    قیمت: ${price}<br> <button class="delete-item" data-item-index="${shoppingCart.indexOf(item)}">حذف</button>
                 `;
                 shoppingBagList.appendChild(listItem);
             });
+
+            const totalPriceElement = document.createElement('li');
+            totalPriceElement.textContent = `مجموع: ${totalPrice}`;
+            shoppingBagList.appendChild(totalPriceElement);
         }
 
-        displayItems(); // Display initial items
+        displayItems();
 
-        // Event listener for delete buttons
         shoppingBagList.addEventListener('click', (event) => {
             if (event.target.classList.contains('delete-item')) {
                 const itemIndex = parseInt(event.target.dataset.itemIndex);
-                shoppingCart.splice(itemIndex, 1); // Remove item from shopping cart
-                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart)); // Update local storage
-                displayItems(); // Update displayed list
+                shoppingCart.splice(itemIndex, 1);
+                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+                displayItems();
             }
         });
 
