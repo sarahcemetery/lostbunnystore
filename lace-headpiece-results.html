@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Bunny Store - Lace Headpiece Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h3>Your Customized Lace Headpiece!</h3>
+
+    <p><strong>Ribbon Color:</strong> <span id="ribbon-color-result"></span></p>
+    <p><strong>Headpiece Size:</strong> <span id="headpiece-size-result"></span> cm</p>
+    <p><strong>Bowtie:</strong> <span id="bowtie-result"></span></p>
+    <p id="bowtie-color-section" style="display: none;"><strong>Bowtie Color:</strong> <span id="bowtie-color-result"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ribbonColor = urlParams.get('ribbon-color');
+        const headpieceSize = urlParams.get('headpiece-size');
+        const hasBowtie = urlParams.get('hasBowtie') ? 'Yes' : 'No';
+        const bowtieColor = urlParams.get('bowtie-color');
+
+        document.getElementById('ribbon-color-result').textContent = ribbonColor;
+        document.getElementById('headpiece-size-result').textContent = headpieceSize;
+        document.getElementById('bowtie-result').textContent = hasBowtie;
+
+        if (hasBowtie === 'Yes') {
+            document.getElementById('bowtie-color-section').style.display = 'block';
+            document.getElementById('bowtie-color-result').textContent = bowtieColor;
+        }
+    </script>
+    
+    <button id="likeButton">I Like It</button>
+    <button id="noThanksButton">No Thanks</button>
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const noThanksButton = document.getElementById('noThanksButton');
+
+        likeButton.addEventListener('click', () => {
+            // Get product details from the page
+            const productName = 'Lace Headpiece'; 
+            const productDetails = {
+                ribbonColor: document.getElementById('ribbon-color-result').textContent,
+                headpieceSize: document.getElementById('headpiece-size-result').textContent,
+                hasBowtie: document.getElementById('bowtie-result').textContent,
+                bowtieColor: document.getElementById('bowtie-color-result').textContent,
+            };
+
+            // Store product details in local storage
+            let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            shoppingCart.push({ name: productName, details: productDetails });
+            localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+            // Redirect to the main page
+            window.location.href = 'index.html'; 
+        });
+
+        noThanksButton.addEventListener('click', () => {
+            // Redirect to the main page without adding to cart
+            window.location.href = 'index.html'; 
+        });
+    </script> 
+
+</body>
+</html>
