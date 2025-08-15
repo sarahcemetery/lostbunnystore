@@ -1,0 +1,279 @@
+body {
+    background-color: #fffaff;
+    color: #88654f;
+    font-family:'PufFont'; 
+    margin: 0;
+    padding: 20px; 
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#about {
+    background-color: white; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px; 
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #88654f;
+}
+
+/* Shopping Bag Styling */
+#shoppingBagList {
+  list-style: none;
+  padding: 0;
+}
+
+#shoppingBagList li {
+  margin: 15px 0; 
+  border: 1px solid #ccc;
+  border-radius: 8px; 
+  padding: 10px 15px;
+  background-color: white; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* Button Styling */
+button {
+  background-color: white; /* white button background */
+  color: #b18467; /* Light pink text */
+  border: none;
+  border-radius: 5px; 
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Shopping Bag Icon Styling */
+.shopping-bag-icon {
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
+  background-color: #f0c0c0; 
+  border-radius: 5px;
+  padding: 5px;
+}
+
+a[href="shopping-bag.html"] {
+  display: inline-block; /* Make the anchor tag display as an inline block */
+  padding: 5px 10px; /* Add padding to the link */
+  border: 1px solid #ccc; /* Add a border to the link */
+  background-color: white; 
+  border-radius: 3px; 
+  }
+
+
+a[href="shopping-bag_fa.html"] {
+  display: inline-block; /* Make the anchor tag display as an inline block */
+  padding: 5px 10px; /* Add padding to the link */
+  border: 1px solid #ccc; /* Add a border to the link */
+  background-color: white; 
+  border-radius: 3px; 
+  }
+
+/* Link Styling */
+a {
+  color: #b28766; /* Lighter brown link color */
+  text-decoration: none; 
+}
+
+a:hover {
+  color: #88654f; /* Darker brown on hover */
+}
+
+
+.shipping-link-board {
+  display: inline-block; /* Make the anchor tag display as an inline block */
+  padding: 5px 10px; /* Add padding to the link */
+  border: 1px solid #ccc; /* Add a border to the link */
+  background-color: white; 
+  border-radius: 3px; 
+  }
+
+
+/* Shipping Information Result Page */
+.shipping-info-container {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Information Box Styling */
+.information-box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Information Results Styling */
+.information-results {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+/*راست به چپ*/
+:lang(fa) {
+    direction: rtl;
+    text-align: right;
+}
+
+
+.color-button.selected::before {
+    content: "♡";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+}
+
+@font-face {
+  font-family: 'PufFont'; /* اسم دلخواه برای فونت */
+  src: url('fonts/puf.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* استایل برای تمام کادرهای ورودی و متن‌ها */
+input[type="text"],
+input[type="tel"],
+input[type="submit"],
+input[type="header"],
+textarea {
+  font-family: 'Vazirmatn', sans-serif;
+  padding: 10px 15px;
+  border: 1px solid #e0d7d3;
+  border-radius: 12px;
+  background-color: #ffffff; /* زمینه کادرها سفید شد */
+  color: #6e5c52;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+
+/* استایل مخصوص دکمه ثبت (submit) */
+input[type="submit"] {
+  background-color: #ffe6f2; /* دکمه به رنگ #ffe6f2 تغییر کرد */
+  color: #6e5c52;
+  font-family: 'PufFont', 'Vazirmatn', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #ffcce6; /* رنگ هاور دکمه به #ffcce6 تغییر کرد */
+}
+
+/* استایل برای برچسب‌ها (labels) */
+label {
+  font-family: 'PufFont', 'Vazirmatn', sans-serif;
+  color: #a1887f;
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 5px;
+}
+/* استایل برای کادر اطلاعات پستی */
+.information-results {
+  background-color: #ffffff; /* زمینه کادر سفید شد */
+  border: 1px solid #e0d7d3;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+/* استایل برای خطوط اطلاعات (نام، آدرس و...) */
+.information-results p {
+  color: #6e5c52;
+  font-family: 'Vazirmatn', sans-serif;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+
+.information-results strong {
+  color: #a1887f;
+}
+
+/* استایل برای دکمه "ذخیره به عنوان عکس" */
+#saveAsImage {
+  background-color: #ffe6f2; /* دکمه به رنگ #ffe6f2 تغییر کرد */
+  color: #6e5c52;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: 'PufFont', 'Vazirmatn', sans-serif;
+}
+
+#saveAsImage:hover {
+  background-color: #ffcce6; /* رنگ هاور به #ffcce6 تغییر کرد */
+  transform: translateY(-2px);
+}
+
+/* این کد مطمئن می‌شود که فونت اصلی به header و پاراگراف‌ها اعمال می‌شود. */
+header,
+p {
+  font-family: 'PufFont', 'Vazirmatn', sans-serif !important;
+}
+
+/* این کد رنگ متن را برای هر متنی که در header قرار دارد، به رنگ اصلی بدنه‌ی صفحه تغییر می‌دهد. */
+header,
+header h1,
+header h2 {
+  color: #88654f !important;
+}
+
+/* این کد رنگ متن را برای تمام پاراگراف‌ها به رنگ اصلی بدنه‌ی صفحه تغییر می‌دهد. */
+p {
+  color: #88654f !important;
+}
+img.teddy {
+    width: 50px;         /* عرض عکس رو کوچیک کن */
+    height: auto;        /* تناسب رو حفظ کن */
+    opacity: ;        /* نیمه شفاف */
+    
+}
+
+img.heart { width: 50px
+height: auto;
+       
+}
+.small-center {
+    display: block;       /* برای margin auto */
+    margin:;       /* وسط افقی */
+    width: 50px;          /* اندازه 20px */
+    height: auto;         /* نسبت تصویر حفظ شود */
+padding:         /* بدون فاصله داخلی */
+    line-height:       /* بدون فاصله خطوط */
+}
