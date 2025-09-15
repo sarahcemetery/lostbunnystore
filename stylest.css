@@ -1,29 +1,21 @@
- body {
-    background-color: #fff0f5; /* پس‌زمینه صورتی روشن‌تر */
+body {
+    background-color: #fff0f5; 
     font-family: 'Vazirmatn', sans-serif;
-    color: #88654f; /* رنگ متن قهوه‌ای جدید */
+    color: #88654f; 
     margin: 0;
     padding: 20px;
-    direction: rtl; /* جهت راست به چپ */
+    direction: ltr; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    text-align: right;
-}
-
-.form-container, .results-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
+    text-align: left;
 }
 
 h1, h3 {
     text-align: center;
-    color: #88654f; /* رنگ قهوه‌ای برای عنوان‌ها */
+    color: #88654f; 
     margin-bottom: 20px;
 }
 
@@ -39,14 +31,14 @@ label {
 }
 
 .form-input, .form-textarea {
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 1em;
     margin-top: 5px;
     box-sizing: border-box;
-    color: #88654f; /* رنگ قهوه‌ای برای متن ورودی */
+    color: #88654f; 
 }
 
 .form-textarea {
@@ -56,13 +48,13 @@ label {
 .color-buttons-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
     margin-top: 10px;
 }
 
 .color-button {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     border: 2px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
@@ -70,18 +62,18 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 0.8em;
     color: #88654f;
 }
 
 .color-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .radio-group, .checkbox-group {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin-top: 10px;
 }
 
@@ -103,7 +95,7 @@ label {
 }
 
 .suggestion-button {
-    background-color: #88654f; /* رنگ قهوه‌ای */
+    background-color: #88654f; 
     color: white;
     border: none;
     padding: 8px 15px;
@@ -121,7 +113,7 @@ label {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    left: 0;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -144,7 +136,7 @@ label {
     cursor: pointer;
     display: inline-block;
     transition: background-color 0.2s;
-    color: #88654f; /* رنگ قهوه‌ای برای متن */
+    color: #88654f; 
 }
 
 .thing-suggestion:hover {
@@ -152,9 +144,9 @@ label {
 }
 
 .submit-button {
-    background-color: #88654f; /* رنگ قهوه‌ای */
+    background-color: #88654f; 
     color: white;
-    padding: 15px 30px;
+    padding: 15px 15px;
     border: none;
     border-radius: 25px;
     font-size: 1.2em;
@@ -170,23 +162,30 @@ label {
 }
 
 /* Results Page Styling */
-.results-card {
+.results-container {
     background-color: #fff;
-    border: 2px solid #f9c2d9; /* رنگ حاشیه */
+    border: 2px solid #f9c2d9; 
     border-radius: 15px;
     padding: 30px;
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
-    color: #88654f; /* رنگ قهوه‌ای برای متن */
+    color: #88654f; 
+    text-align: left;
+    direction: ltr;
+    box-shadow: 8px 8px 0px #d85787;
 }
 
-.results-card p {
+.results-container h3 {
+    text-align: center;
+}
+
+.results-container p {
     margin: 10px 0;
     line-height: 1.6;
 }
 
-.results-card strong {
+.results-container strong {
     font-size: 1.1em;
 }
 
@@ -210,20 +209,28 @@ label {
 }
 
 .save-button {
-    background-color: #ffe6f9;
-    color: #88654f;
-    border: 2px solid #f9c2d9;
-    padding: 10px 20px;
-    border-radius: 20px;
+    background-color: #ffcdd2;
+    color: #880e4f;
+    border: 2px solid #f48fb1;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px #ad1457;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.5) 10px,
+        rgba(255, 255, 255, 0.5) 20px
+    );
+    padding: 12px 24px;
+    font-size: 1.2em;
     cursor: pointer;
-    font-size: 1em;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-.save-button {
-    background: rgba(255, 230, 249, 0.7);
-    backdrop-filter: blur(6px);
+    transition: all 0.2s ease;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
 .save-button:hover {
-    background-color: #fce7fa;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px #ad1457;
 }
