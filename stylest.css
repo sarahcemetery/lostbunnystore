@@ -1,144 +1,67 @@
+/* استایل‌های کلی */
 body {
     background-color: #fffaff;
     color: #88654f;
-    font-family:'PufFont'; 
+    font-family: 'PufFont';
     margin: 0;
-    padding: 20px; 
+    padding: 20px;
+    direction: ltr;
+    text-align: left;
 }
 
-header {
-    text-align: center;
+h1, h3, h2 {
+    text-align: ;
+    color: #88654f;
     margin-bottom: 20px;
 }
 
-#about {
-    background-color: white; 
+/* استایل‌های مربوط به فرم */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px; 
-}
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.social-links {
-    margin-bottom: 10px;
-}
-
-.social-links a {
-    margin: 0 10px;
-    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    box-sizing: border-box;
     color: #88654f;
 }
 
-/* Shopping Bag Styling */
-#shoppingBagList {
-  list-style: none;
-  padding: 0;
+.form-textarea {
+    resize: vertical;
 }
 
-#shoppingBagList li {
-  margin: 15px 0; 
-  border: 1px solid #ccc;
-  border-radius: 8px; 
-  padding: 10px 15px;
-  background-color: white; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+.color-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
 }
 
-/* Button Styling */
-button {
-  background-color: white; /* white button background */
-  color: #b18467; /* Light pink text */
-  border: none;
-  border-radius: 5px; 
-  padding: 8px 12px;
-  font-size: 12px;
-  cursor: pointer;
+.color-button {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #88654f;
 }
-
-/* Shopping Bag Icon Styling */
-.shopping-bag-icon {
-  position: fixed; 
-  top: 10px; 
-  right: 10px; 
-  background-color: #f0c0c0; 
-  border-radius: 5px;
-  padding: 5px;
-}
-
-a[href="shopping-bag.html"] {
-  display: inline-block; /* Make the anchor tag display as an inline block */
-  padding: 5px 10px; /* Add padding to the link */
-  border: 1px solid #ccc; /* Add a border to the link */
-  background-color: white; 
-  border-radius: 3px; 
-  }
-
-
-a[href="shopping-bag_fa.html"] {
-  display: inline-block; /* Make the anchor tag display as an inline block */
-  padding: 5px 10px; /* Add padding to the link */
-  border: 1px solid #ccc; /* Add a border to the link */
-  background-color: white; 
-  border-radius: 3px; 
-  }
-
-/* Link Styling */
-a {
-  color: #b28766; /* Lighter brown link color */
-  text-decoration: none; 
-}
-
-a:hover {
-  color: #88654f; /* Darker brown on hover */
-}
-
-
-.shipping-link-board {
-  display: inline-block; /* Make the anchor tag display as an inline block */
-  padding: 5px 10px; /* Add padding to the link */
-  border: 1px solid #ccc; /* Add a border to the link */
-  background-color: white; 
-  border-radius: 3px; 
-  }
-
-
-/* Shipping Information Result Page */
-.shipping-info-container {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-}
-
-/* Information Box Styling */
-.information-box {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-/* Information Results Styling */
-.information-results {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-}
-
-
-/*راست به چپ*/
-:lang(fa) {
-    direction: rtl;
-    text-align: right;
-}
-
 
 .color-button.selected::before {
     content: "♡";
@@ -151,9 +74,113 @@ a:hover {
     width: 100%;
 }
 
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.details-section {
+    display: none;
+    margin-top: 10px;
+}
+
+.suggestions {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.suggestion-list {
+    position: relative;
+    display: inline-block;
+}
+
+.suggestion-button {
+    background-color: white;
+    color: #88654f;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.suggestion-button:hover {
+    background-color: #f9f9f9;
+}
+
+.suggestion-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 10;
+    white-space: nowrap;
+    margin-top: 5px;
+}
+
+.suggestion-content.active {
+    display: block;
+}
+
+.thing-suggestion {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #fff0f5;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.2s;
+    color: #88654f;
+}
+
+.thing-suggestion:hover {
+    background-color: #ffe7f0;
+}
+
+/* استایل‌های دکمه‌های متمرکز */
+.centered-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-button, .save-button {
+    background-color: white;
+    color: #b18467;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.submit-button:hover, .save-button:hover {
+    background-color: #f9f9f9;
+}
+
+
+/* استایل‌های صفحه نتایج */
+.information-results {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
 @font-face {
-  font-family: 'PufFont'; /* اسم دلخواه برای فونت */
-  src: url('fonts/puf.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'PufFont';
+    src: url('fonts/puf.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
