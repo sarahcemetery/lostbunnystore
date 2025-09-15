@@ -4,17 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اطلاعات پستی ૮꒰ ⑅ ᴗ . ᴗ ꒱ა</title>
-    <link rel="stylesheet" href="stylesp.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* پالت رنگی */
+        :root {
+            --primary-text-color: #88654f;
+            --light-text-color: #b18467;
+            --background-color: #fffaff;
+            --white-color: #ffffff;
+            --border-color: #cccccc;
+            --hover-color: #f9f9f9;
+        }
+
+        /* استایل‌های کلی */
+        body {
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            font-family: 'Vazirmatn', sans-serif;
+            margin: 0;
+            padding: 20px;
+            direction: rtl; /* برای پشتیبانی از زبان فارسی */
+            text-align: right;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: var(--primary-text-color);
+            margin-bottom: 20px;
+        }
+
+        /* استایل‌های مربوط به فرم */
+        .information-box {
+            max-width: 500px;
+            margin: 40px auto;
+        }
+
+        label {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1em;
+            margin-top: 5px;
+            box-sizing: border-box;
+            color: var(--primary-text-color);
+            margin-bottom: 15px;
+            background-color: var(--white-color);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* استایل دکمه‌ها */
+        .centered-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .submit-button {
+            background-color: var(--white-color);
+            color: var(--light-text-color);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .submit-button:hover {
+            background-color: var(--hover-color);
+        }
+    </style>
 </head>
 <body>
     <header>
-      <h2> ✉️ اطلاعات پستی </h2> 
-  
+        <h2> ✉️ اطلاعات پستی </h2> 
     </header>
     <main>
         <div class="information-box">
-        
             <form action="shipping-results_fa.html" method="get">
                 <label for="full-name">نام و نام خانوادگی:</label>
                 <input type="text" id="full-name" name="full-name" required><br>
@@ -31,7 +109,9 @@
                 <label for="customer-note">یادداشت:</label>
                 <textarea id="customer-note" name="customer-note" rows="3" placeholder="..."></textarea><br>
                 
-                <input type="submit" value="ثبت ʚ♡ɞ">
+                <div class="centered-button-container">
+                    <button type="submit" class="submit-button">ثبت ʚ♡ɞ</button>
+                </div>
             </form>
         </div>
     </main>
