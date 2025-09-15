@@ -4,30 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خانه عروسکی گم شده - نتایج پستی</title>
-    <link rel="stylesheet" href="stylesp.css">
-    
+    <link href="https://cdn.jsdelivr.ly/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* پالت رنگی */
+        :root {
+            --primary-text-color: #88654f;
+            --light-text-color: #b18467;
+            --background-color: #fffaff;
+            --white-color: #ffffff;
+            --border-color: #cccccc;
+            --hover-color: #f9f9f9;
+        }
+
+        /* استایل‌های کلی */
+        body {
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            font-family: 'Vazirmatn', sans-serif;
+            margin: 0;
+            padding: 20px;
+            direction: rtl; /* برای پشتیبانی از زبان فارسی */
+            text-align: right;
+        }
+        
+        h2, h3 {
+            text-align: center;
+            color: var(--primary-text-color);
+            margin-bottom: 20px;
+        }
+
+        /* استایل‌های صفحه نتایج */
+        .information-results {
+            background-color: var(--white-color);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 40px auto;
+        }
+
+        .information-results p {
+            margin: 10px 0;
+        }
+
+        .information-results strong {
+            font-size: 1.1em;
+        }
+
+        /* استایل دکمه */
+        .centered-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .save-button {
+            background-color: var(--white-color);
+            color: var(--light-text-color);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .save-button:hover {
+            background-color: var(--hover-color);
+        }
+    </style>
 </head>
 <body>
     <header>
- 
-       <h3> اطلاعات پستی</h3>
-       <p> عکس ذخیره شده رو ارسال کن </p>
-       
+        <h3> اطلاعات پستی</h3>
+        <p> عکس ذخیره شده رو ارسال کن </p>
     </header>
     <main>
         <div class="information-results">
-    
             <p><strong>♡نام و نام خانوادگی:</strong> <span id="full-name-result"></span></p>
             <p><strong>♡کد پستی:</strong> <span id="postal-code-result"></span></p>
             <p><strong>♡شماره همراه:</strong> <span id="phone-number-result"></span></p>
             <p><strong>♡آدرس کامل:</strong> <span id="address-result"></span></p>
-            <p><strong>♡نامه‌ی شما:</strong> <span id="customer-note-result"></span></p> 
-            <img src="png (81).png" class="teddy"> <img src="bow.png" class="teddy">
+            <p><strong>♡نامه‌ی شما:</strong> <span id="customer-note-result"></span></p>
         </div>
-        <button id="saveAsImage">save ♡</button>
-        
-      
+
+        <div class="centered-button-container">
+            <button id="saveAsImage" class="save-button">save ♡</button>
+        </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const fullName = urlParams.get('full-name');
@@ -41,12 +105,10 @@
         document.getElementById('phone-number-result').textContent = phoneNumber;
         document.getElementById('address-result').textContent = address;
         document.getElementById('customer-note-result').textContent = customerNote;
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> 
-    <script>
+
         const saveAsImageButton = document.getElementById('saveAsImage');
         saveAsImageButton.addEventListener('click', () => {
-            html2canvas(document.querySelector('body')).then(canvas => {
+            html2canvas(document.querySelector('.information-results')).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
                 const link = document.createElement('a');
                 link.download = 'shipping_info.png';
